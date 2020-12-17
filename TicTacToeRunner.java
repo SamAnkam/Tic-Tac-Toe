@@ -49,10 +49,9 @@ public class TicTacToeRunner { //this uses the methods of ticTacToe to display t
       boolean user2 = true;
       String anotherRound = "no"; //used to check if the user wants to play a another round
       
-      do {   //this do-while loop is used if the user wants to play again. check line 116
+      
          System.out.println("Hello! \rWelcome to Tic Tac Toe. \rThis game requires two players"); //start of the tic tac toe game
          System.out.println("Do you want to play? (yes or no)");
-      
          if (scan.nextLine().equalsIgnoreCase("yes")) { //checks if user wants to play the game
             System.out.println("Who wants to be 'X'. Enter your name.");
             player1 = new Player(scan.nextLine(), "X"); //initializes player1 to the values given by the user
@@ -60,6 +59,9 @@ public class TicTacToeRunner { //this uses the methods of ticTacToe to display t
             player2 = new Player(scan.nextLine(), "O");//initializes player2 to the values given by the user
          
             System.out.println("Instructions: \rThe game will be played in turns. \rWhen prompted to respond, type your location in the form of rows and columns. ");
+
+            do {   //this do-while loop is used if the user wants to play again. check line 116
+
             System.out.println("This is the game board,");
             ttt.newBoard(); //this creates a new board
             ttt.printBoard(); //this prints the current board
@@ -101,14 +103,19 @@ public class TicTacToeRunner { //this uses the methods of ticTacToe to display t
                }
             
             } 
-         } else { 
-            System.out.println("Goodbye, the game will always be here!");
-            break; }
+            
          scan.nextLine(); //this ensures that the next input line will be returned
          System.out.println("Do you want to play again? (yes or no)"); //allows the user to play again.
-         anotherRound = scan.nextLine(); 
+         anotherRound = scan.nextLine();  
+         } while (anotherRound.equalsIgnoreCase("yes")); //checks whether the player wants to play again.
+         System.out.println("Hope you enjoyed your game!");
          
-      } while (anotherRound.equalsIgnoreCase("yes")); //checks whether the player wants to play again.
+      } else { 
+            System.out.println("Goodbye, the game will always be here!");
+         }
+
+         
+      
    
       
        
